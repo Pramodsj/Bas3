@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx" Version="4.0">
+	<edmx:Reference Uri="/sap/bc/ui5_ui5/ui2/ushell/resources/sap/ushell/components/factsheet/vocabularies/UI.xml">
+		<edmx:Include Alias="UI" Namespace="com.sap.vocabularies.UI.v1"/>
+	</edmx:Reference>
+	<edmx:Reference Uri="/sap/opu/odata/sap/ZFI_0266_REVENUEREPORT_SRV/$metadata">
+		<edmx:Include Alias="ZFI_0266_REVENUEREPORT_SRV" Namespace="ZFI_0266_REVENUEREPORT_SRV"/>
+	</edmx:Reference>
+	<edmx:DataServices>
+		<Schema xmlns="http://docs.oasis-open.org/odata/ns/edm" Namespace="ZFI_0266_RPR.zfi_0266_rpr.ZFI_0266_REVENUEREPORT_SRV">
+			<!--===============================================================================
+                Entity Type from chosen collection 
+                ================================================================================-->
+			<Annotations Target="ZFI_0266_REVENUEREPORT_SRV.zfi_cov_revenueType">
+				<Annotation Term="UI.Facets">
+					<Collection>
+						<Record Type="UI.CollectionFacet">
+							<PropertyValue Property="ID" String="GeneralInformation"/>
+							<PropertyValue Property="Label" String="{@i18n>@GeneralInfoFacetLabel}"/>
+							<PropertyValue Property="Facets">
+								<Collection>
+									<Record Type="UI.ReferenceFacet">
+										<PropertyValue Property="Label" String="{@i18n>@GeneralInfoFacetLabel}"/>
+										<PropertyValue Property="Target" AnnotationPath="@UI.Identification"/>
+									</Record>
+								</Collection>
+							</PropertyValue>
+						</Record>
+						<Record Type="UI.ReferenceFacet">
+							<PropertyValue Property="Label" String="{@i18n>@SecondFacetLabel}"/>
+							<PropertyValue Property="Target" AnnotationPath="Parameters/@UI.LineItem"/>
+						</Record>
+					</Collection>
+				</Annotation>
+			</Annotations>
+			<!--===============================================================================
+                Entity Type from chosen navigation property
+                ================================================================================-->
+			<Annotations Target="ZFI_0266_REVENUEREPORT_SRV.zfi_cov_revenueParameters">
+				<Annotation Term="UI.Facets">
+					<Collection>
+						<Record Type="UI.CollectionFacet">
+							<PropertyValue Property="ID" String="GeneralInformation"/>
+							<PropertyValue Property="Label" String="{@i18n>@GeneralInfoFacetLabel}"/>
+							<PropertyValue Property="Facets">
+								<Collection>
+									<Record Type="UI.ReferenceFacet">
+										<PropertyValue Property="Label" String="{@i18n>@GeneralInfoFacetLabel}"/>
+										<PropertyValue Property="Target" AnnotationPath="@UI.Identification"/>
+									</Record>
+								</Collection>
+							</PropertyValue>
+						</Record>
+					</Collection>
+				</Annotation>
+			</Annotations>
+		</Schema>
+	</edmx:DataServices>
+</edmx:Edmx>

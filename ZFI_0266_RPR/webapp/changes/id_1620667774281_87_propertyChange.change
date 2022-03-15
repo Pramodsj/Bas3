@@ -1,0 +1,43 @@
+{
+	"fileName": "id_1620667774281_87_propertyChange",
+	"fileType": "change",
+	"changeType": "propertyChange",
+	"moduleName": "",
+	"reference": "ZFI_0266_RPR.zfi_0266_rpr.Component",
+	"packageName": "$TMP",
+	"content": {
+		"property": "useExportToExcel",
+		"newValue": true
+	},
+	"selector": {
+		"id": "ZFI_0266_RPR.zfi_0266_rpr::sap.suite.ui.generic.template.ListReport.view.ListReport::zfi_cov_revenueSet--listReport",
+		"type": "sap.ui.comp.smarttable.SmartTable",
+		"idIsLocal": false
+	},
+	"layer": "CUSTOMER_BASE",
+	"texts": {},
+	"namespace": "apps/ZFI_0266_RPR.zfi_0266_rpr/changes/",
+	"projectId": "ZFI_0266_RPR.zfi_0266_rpr",
+	"creation": "2021-05-10T17:29:36.733Z",
+	"originalLanguage": "EN",
+	"conditions": {},
+	"context": "",
+	"support": {
+		"generator": "Change.createInitialFileContent",
+		"service": "",
+		"user": "",
+		"sapui5Version": "1.71.19",
+		"sourceChangeFileName": "",
+		"compositeCommand": ""
+	},
+	"oDataInformation": {},
+	"dependentSelector": {},
+	"validAppVersions": {
+		"creation": "1.0.0",
+		"from": "1.0.0",
+		"to": "1.0.0"
+	},
+	"jsOnly": false,
+	"variantReference": "",
+	"appDescriptorChange": false
+}

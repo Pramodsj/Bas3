@@ -1,0 +1,87 @@
+<edmx:Edmx xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx"
+	xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:sap="http://www.sap.com/Protocols/SAPData" Version="1.0">
+	<edmx:Reference xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx"
+		Uri="./IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_COMMON',Version='0001',SAP__Origin='LOCAL')/$value"><edmx:Include Namespace="com.sap.vocabularies.Common.v1" Alias="Common"/></edmx:Reference>
+	<edmx:Reference xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx"
+		Uri="./IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_CAPABILITIES',Version='0001',SAP__Origin='LOCAL')/$value"><edmx:Include Namespace="Org.OData.Capabilities.V1" Alias="Capabilities"/></edmx:Reference>
+	<edmx:Reference xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx"
+		Uri="./IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_COMMUNICATION',Version='0001',SAP__Origin='LOCAL')/$value"><edmx:Include Namespace="com.sap.vocabularies.Communication.v1" Alias="Communication"/></edmx:Reference>
+	<edmx:Reference xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx"
+		Uri="./IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_AGGREGATION',Version='0001',SAP__Origin='LOCAL')/$value"><edmx:Include Namespace="Org.OData.Aggregation.V1" Alias="Aggregation"/></edmx:Reference>
+	<edmx:Reference xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx"
+		Uri="./IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_PERSONALDATA',Version='0001',SAP__Origin='LOCAL')/$value"><edmx:Include Namespace="com.sap.vocabularies.PersonalData.v1" Alias="PersonalData"/></edmx:Reference>
+	<edmx:DataServices m:DataServiceVersion="2.0">
+		<Schema xmlns="http://schemas.microsoft.com/ado/2008/09/edm" Namespace="ZFI_0266_REVENUEREPORT_SRV" xml:lang="en" sap:schema-version="1">
+			<EntityType Name="zfi_cov_revenueType" sap:label="Consumption View - Revenue Posting Report" sap:content-version="1">
+				<Key><PropertyRef Name="p_fiscalyear"/><PropertyRef Name="p_postingperiod"/><PropertyRef Name="WBSElement"/><PropertyRef Name="PSAContractType"/><PropertyRef Name="ProjectAccountant"/></Key><Property Name="p_fiscalyear" Type="Edm.String" Nullable="false" MaxLength="4" sap:display-format="NonNegative" sap:label="Fiscal Year"/><Property Name="p_postingperiod" Type="Edm.String" Nullable="false" MaxLength="3" sap:display-format="NonNegative"
+					sap:label="Posting period"/><Property Name="WBSElement" Type="Edm.String" Nullable="false" MaxLength="24" sap:display-format="UpperCase" sap:label="Project definition"/><Property Name="PSAContractType" Type="Edm.String" Nullable="false" MaxLength="50" sap:display-format="UpperCase"
+					sap:label="PSA Contract type" sap:quickinfo="PSA Contract Type"/><Property Name="ProjectAccountant" Type="Edm.String" Nullable="false" MaxLength="81"/><Property Name="LegalGeo" Type="Edm.String" MaxLength="4" sap:display-format="UpperCase" sap:label="Legal Geo"/><Property Name="CompanyCode" Type="Edm.String" MaxLength="4" sap:display-format="UpperCase" sap:label="Company code"
+					sap:quickinfo="Company code for the project"/><Property Name="ProjectStatus" Type="Edm.String" MaxLength="4" sap:label="Status"
+					sap:quickinfo="Individual status of an object (short form)"/><Property Name="RAKey" Type="Edm.String" MaxLength="6" sap:display-format="UpperCase" sap:label="Results analysis key"
+					sap:quickinfo="Results Analysis Key"/><Property Name="TotalPlannedHours" Type="Edm.Decimal" Precision="26" Scale="3"/><Property Name="TotalActualHours" Type="Edm.Decimal" Precision="26" Scale="3"/><Property Name="CurrentActualHours" Type="Edm.Decimal" Precision="26" Scale="3"/><Property Name="LocalCurrency" Type="Edm.String" MaxLength="5" sap:label="Project Currency"
+					sap:quickinfo="WBS currency (project definition)" sap:semantics="currency-code"/><Property Name="TotalPlannedCostLC" Type="Edm.Decimal" Precision="32" Scale="3"/><Property Name="TotalActualCostLC" Type="Edm.Decimal" Precision="24" Scale="3"/><Property Name="CurrentActualCostLC" Type="Edm.Decimal" Precision="24" Scale="3"/><Property Name="TotalPlannedRevenueLC" Type="Edm.Decimal" Precision="32" Scale="3"/><Property Name="PriorRevenueLC" Type="Edm.Decimal" Precision="24" Scale="3"/><Property Name="CurrentRevenueLC" Type="Edm.Decimal" Precision="24" Scale="3"/><Property Name="TotalPlannedRevenueGC" Type="Edm.Decimal" Precision="32" Scale="3"/><Property Name="PriorRevenueGC" Type="Edm.Decimal" Precision="24" Scale="3"/><Property Name="CurrentRevenueGC" Type="Edm.Decimal" Precision="24" Scale="3"/><Property Name="UIM_INFO" Type="Edm.String" sap:label="UIM Info" sap:visible="false" sap:updatable="false"/><NavigationProperty Name="Parameters" Relationship="ZFI_0266_REVENUEREPORT_SRV.assoc_BC3D6B92D6E500BA0ECA87F51F1BF915"
+					FromRole="ToRole_assoc_BC3D6B92D6E500BA0ECA87F51F1BF915" ToRole="FromRole_assoc_BC3D6B92D6E500BA0ECA87F51F1BF915" sap:filterable="false"/></EntityType>
+			<EntityType Name="zfi_cov_revenueParameters" sap:semantics="parameters" sap:content-version="1">
+				<Key><PropertyRef Name="p_fiscalyear"/><PropertyRef Name="p_postingperiod"/></Key><Property Name="p_fiscalyear" Type="Edm.String" Nullable="false" MaxLength="4" sap:display-format="NonNegative" sap:parameter="mandatory"
+					sap:label="Fiscal Year" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="p_postingperiod" Type="Edm.String" Nullable="false" MaxLength="3" sap:display-format="NonNegative" sap:parameter="mandatory"
+					sap:label="Posting period" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/><Property Name="UIM_INFO" Type="Edm.String" sap:label="UIM Info" sap:visible="false" sap:updatable="false"/><NavigationProperty Name="Set" Relationship="ZFI_0266_REVENUEREPORT_SRV.assoc_BC3D6B92D6E500BA0ECA87F51F1BF915"
+					FromRole="FromRole_assoc_BC3D6B92D6E500BA0ECA87F51F1BF915" ToRole="ToRole_assoc_BC3D6B92D6E500BA0ECA87F51F1BF915"/></EntityType>
+			<Association Name="assoc_BC3D6B92D6E500BA0ECA87F51F1BF915" sap:content-version="1"><End Type="ZFI_0266_REVENUEREPORT_SRV.zfi_cov_revenueParameters" Multiplicity="1" Role="FromRole_assoc_BC3D6B92D6E500BA0ECA87F51F1BF915"/><End Type="ZFI_0266_REVENUEREPORT_SRV.zfi_cov_revenueType" Multiplicity="*" Role="ToRole_assoc_BC3D6B92D6E500BA0ECA87F51F1BF915"/></Association>
+			<EntityContainer Name="ZFI_0266_REVENUEREPORT_SRV_Entities" m:IsDefaultEntityContainer="true" sap:message-scope-supported="true"
+				sap:supported-formats="atom json xlsx"><EntitySet Name="zfi_cov_revenueSet" EntityType="ZFI_0266_REVENUEREPORT_SRV.zfi_cov_revenueType" sap:creatable="false" sap:updatable="false"
+				sap:deletable="false" sap:addressable="false" sap:content-version="1"/><EntitySet Name="zfi_cov_revenue" EntityType="ZFI_0266_REVENUEREPORT_SRV.zfi_cov_revenueParameters" sap:creatable="false"
+				sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:content-version="1"/>
+				<AssociationSet Name="assoc_BC3D6B92D6E500BA0ECA87F51F1BF915"
+					Association="ZFI_0266_REVENUEREPORT_SRV.assoc_BC3D6B92D6E500BA0ECA87F51F1BF915" sap:creatable="false" sap:updatable="false"
+					sap:deletable="false" sap:content-version="1"><End EntitySet="zfi_cov_revenue" Role="FromRole_assoc_BC3D6B92D6E500BA0ECA87F51F1BF915"/><End EntitySet="zfi_cov_revenueSet" Role="ToRole_assoc_BC3D6B92D6E500BA0ECA87F51F1BF915"/></AssociationSet>
+			</EntityContainer>
+			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="ZFI_0266_REVENUEREPORT_SRV.ZFI_0266_REVENUEREPORT_SRV_Entities">
+				<Annotation Term="Aggregation.ApplySupported">
+					<Record>
+						<PropertyValue Property="Transformations">
+							<Collection>
+								<String>aggregate</String>
+								<String>groupby</String>
+								<String>filter</String>
+							</Collection>
+						</PropertyValue><PropertyValue Property="Rollup" EnumMember="None"/></Record>
+				</Annotation>
+			</Annotations>
+			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm"
+				Target="ZFI_0266_REVENUEREPORT_SRV.ZFI_0266_REVENUEREPORT_SRV_Entities/zfi_cov_revenue">
+				<Annotation Term="Capabilities.FilterRestrictions">
+					<Record>
+						<PropertyValue Property="NonFilterableProperties">
+							<Collection>
+								<PropertyPath>p_fiscalyear</PropertyPath>
+								<PropertyPath>p_postingperiod</PropertyPath>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+				<Annotation Term="Capabilities.NavigationRestrictions">
+					<Record>
+						<PropertyValue Property="RestrictedProperties">
+							<Collection>
+								<Record><PropertyValue Property="NavigationProperty" NavigationPropertyPath="Parameters"/>
+									<PropertyValue Property="FilterRestrictions">
+										<Record><PropertyValue Property="Filterable" Bool="false"/></Record>
+									</PropertyValue>
+								</Record>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+				<Annotation Term="Capabilities.SortRestrictions">
+					<Record>
+						<PropertyValue Property="NonSortableProperties">
+							<Collection>
+								<PropertyPath>p_fiscalyear</PropertyPath>
+								<PropertyPath>p_postingperiod</PropertyPath>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+			</Annotations><atom:link xmlns:atom="http://www.w3.org/2005/Atom" rel="self" href="./sap/ZFI_0266_REVENUEREPORT_SRV/$metadata"/><atom:link xmlns:atom="http://www.w3.org/2005/Atom" rel="latest-version" href="./sap/ZFI_0266_REVENUEREPORT_SRV/$metadata"/></Schema>
+	</edmx:DataServices>
+</edmx:Edmx>
