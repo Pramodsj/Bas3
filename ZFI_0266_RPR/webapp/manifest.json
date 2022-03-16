@@ -1,202 +1,202 @@
 {
-	"_version": "1.8.0",
-	"sap.app": {
-		"id": "ZFI_0266_RPR.zfi_0266_rpr",
-		"type": "application",
-		"i18n": "i18n/i18n.properties",
-		"applicationVersion": {
-			"version": "1.0.0"
-		},
-		"title": "{{appTitle}}",
-		"description": "{{appDescription}}",
-		"tags": {
-			"keywords": []
-		},
-		"dataSources": {
-			"mainService": {
-				"uri": "/sap/opu/odata/sap/ZFI_0266_REVENUEREPORT_SRV/",
-				"type": "OData",
-				"settings": {
-					"annotations": [
-						"ZFI_0266_REVENUEREPORT_ANNO_MDL",
-						"localAnnotations"
-					],
-					"localUri": "localService/metadata.xml"
-				}
-			},
-			"ZFI_0266_REVENUEREPORT_ANNO_MDL": {
-				"uri": "/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Annotations(TechnicalName='ZFI_0266_REVENUEREPORT_ANNO_MDL',Version='0001')/$value/",
-				"type": "ODataAnnotation",
-				"settings": {
-					"localUri": "localService/ZFI_0266_REVENUEREPORT_ANNO_MDL.xml"
-				}
-			},
-			"localAnnotations": {
-				"uri": "annotations/annotations.xml",
-				"type": "ODataAnnotation",
-				"settings": {
-					"localUri": "annotations/annotations.xml"
-				}
-			}
-		},
-		"offline": false,
-		"sourceTemplate": {
-			"id": "ui5template.smartTemplate",
-			"version": "1.40.12"
-		}
-	},
-	"sap.ui": {
-		"technology": "UI5",
-		"icons": {
-			"icon": "",
-			"favIcon": "",
-			"phone": "",
-			"phone@2": "",
-			"tablet": "",
-			"tablet@2": ""
-		},
-		"deviceTypes": {
-			"desktop": true,
-			"tablet": true,
-			"phone": true
-		},
-		"supportedThemes": [
-			"sap_fiori_3"
-		]
-	},
-	"sap.ui5": {
-		"resources": {
-			"js": [],
-			"css": []
-		},
-		"dependencies": {
-			"minUI5Version": "1.65.6",
-			"libs": {
-				"sap.suite.ui.generic.template": {
-					"lazy": false
-				},
-				"sap.ui.core": {
-					"lazy": false
-				},
-				"sap.ui.generic.app": {
-					"lazy": false
-				}
-			},
-			"components": {}
-		},
-		"models": {
-			"i18n": {
-				"type": "sap.ui.model.resource.ResourceModel",
-				"uri": "i18n/i18n.properties"
-			},
-			"@i18n": {
-				"type": "sap.ui.model.resource.ResourceModel",
-				"uri": "i18n/i18n.properties"
-			},
-			"i18n|sap.suite.ui.generic.template.ListReport|zfi_cov_revenueSet": {
-				"type": "sap.ui.model.resource.ResourceModel",
-				"uri": "i18n/ListReport/zfi_cov_revenueSet/i18n.properties"
-			},
-			"i18n|sap.suite.ui.generic.template.ObjectPage|zfi_cov_revenueSet": {
-				"type": "sap.ui.model.resource.ResourceModel",
-				"uri": "i18n/ObjectPage/zfi_cov_revenueSet/i18n.properties"
-			},
-			"i18n|sap.suite.ui.generic.template.ObjectPage|zfi_cov_revenue": {
-				"type": "sap.ui.model.resource.ResourceModel",
-				"uri": "i18n/ObjectPage/zfi_cov_revenue/i18n.properties"
-			},
-			"": {
-				"dataSource": "mainService",
-				"preload": true,
-				"settings": {
-					"defaultBindingMode": "TwoWay",
-					"defaultCountMode": "Inline",
-					"refreshAfterChange": false,
-					"metadataUrlParams": {
-						"sap-value-list": "none"
-					}
-				}
-			}
-		},
-		"extends": {
-			"extensions": {
-				"sap.ui.controllerExtensions": {
-					"sap.suite.ui.generic.template.ListReport.view.ListReport": {
-						"controllerName": "ZFI_0266_RPR.zfi_0266_rpr.ext.controller.ListReportExt",
-						"sap.ui.generic.app": {
-							"zfi_cov_revenueSet": {
-								"EntitySet": "zfi_cov_revenueSet",
-								"Actions": {}
-							}
-						}
-					}
-				}
-			}
-		},
-		"contentDensities": {
-			"compact": true,
-			"cozy": true
-		}
-	},
-	"sap.ui.generic.app": {
-		"_version": "1.3.0",
-		"settings": {
-			"forceGlobalRefresh": false,
-			"objectPageHeaderType": "Dynamic",
-			"showDraftToggle": false,
-			"considerAnalyticalParameters": true
-		},
-		"pages": {
-			"ListReport|zfi_cov_revenueSet": {
-				"entitySet": "zfi_cov_revenueSet",
-				"component": {
-					"name": "sap.suite.ui.generic.template.ListReport",
-					"list": true,
-					"settings": {
-						"tableType": "GridTable",
-						"filterSettings": {
-							"dateSettings": {
-								"useDateRange": true
-							}
-						},
-						"smartVariantManagement": true,
-						"condensedTableLayout": true
-					}
-				},
-				"pages": {
-					"ObjectPage|zfi_cov_revenueSet": {
-						"entitySet": "zfi_cov_revenueSet",
-						"component": {
-							"name": "sap.suite.ui.generic.template.ObjectPage"
-						},
-						"pages": {
-							"ObjectPage|Parameters": {
-								"navigationProperty": "Parameters",
-								"entitySet": "zfi_cov_revenue",
-								"component": {
-									"name": "sap.suite.ui.generic.template.ObjectPage"
-								},
-								"pages": {
-									"ObjectPage|Set": {
-										"navigationProperty": "Set",
-										"entitySet": "zfi_cov_revenueSet",
-										"component": {
-											"name": "sap.suite.ui.generic.template.ObjectPage"
-										}
-									}
-								}
-							}
-						}
-					}
-				}
-			}
-		}
-	},
-	"sap.platform.hcp": {
-		"uri": ""
-	},
-	"sap.platform.abap": {
-		"uri": "/sap/bc/ui5_ui5/sap/zfi_0266_rpr/webapp",
-		"_version": "1.1.0"
-	}
+    "_version": "1.8.0",
+    "sap.app": {
+        "id": "ZFI_0266_RPR.zfi_0266_rpr",
+        "type": "application",
+        "i18n": "i18n/i18n.properties",
+        "applicationVersion": {
+            "version": "1.0.0"
+        },
+        "title": "{{appTitle}}",
+        "description": "{{appDescription}}",
+        "tags": {
+            "keywords": []
+        },
+        "dataSources": {
+            "mainService": {
+                "uri": "/sap/opu/odata/sap/ZFI_0266_REVENUEREPORT_SRV/",
+                "type": "OData",
+                "settings": {
+                    "annotations": [
+                        "ZFI_0266_REVENUEREPORT_ANNO_MDL",
+                        "localAnnotations"
+                    ],
+                    "localUri": "localService/metadata.xml"
+                }
+            },
+            "ZFI_0266_REVENUEREPORT_ANNO_MDL": {
+                "uri": "/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Annotations(TechnicalName='ZFI_0266_REVENUEREPORT_ANNO_MDL',Version='0001')/$value/",
+                "type": "ODataAnnotation",
+                "settings": {
+                    "localUri": "localService/ZFI_0266_REVENUEREPORT_ANNO_MDL.xml"
+                }
+            },
+            "localAnnotations": {
+                "uri": "annotations/annotations.xml",
+                "type": "ODataAnnotation",
+                "settings": {
+                    "localUri": "annotations/annotations.xml"
+                }
+            }
+        },
+        "offline": false,
+        "sourceTemplate": {
+            "id": "ui5template.smartTemplate",
+            "version": "1.40.12"
+        }
+    },
+    "sap.ui": {
+        "technology": "UI5",
+        "icons": {
+            "icon": "",
+            "favIcon": "",
+            "phone": "",
+            "phone@2": "",
+            "tablet": "",
+            "tablet@2": ""
+        },
+        "deviceTypes": {
+            "desktop": true,
+            "tablet": true,
+            "phone": true
+        },
+        "supportedThemes": [
+            "sap_fiori_3"
+        ]
+    },
+    "sap.ui5": {
+        "resources": {
+            "js": [],
+            "css": []
+        },
+        "dependencies": {
+            "minUI5Version": "1.99.0",
+            "libs": {
+                "sap.suite.ui.generic.template": {
+                    "lazy": false
+                },
+                "sap.ui.core": {
+                    "lazy": false
+                },
+                "sap.ui.generic.app": {
+                    "lazy": false
+                }
+            },
+            "components": {}
+        },
+        "models": {
+            "i18n": {
+                "type": "sap.ui.model.resource.ResourceModel",
+                "uri": "i18n/i18n.properties"
+            },
+            "@i18n": {
+                "type": "sap.ui.model.resource.ResourceModel",
+                "uri": "i18n/i18n.properties"
+            },
+            "i18n|sap.suite.ui.generic.template.ListReport|zfi_cov_revenueSet": {
+                "type": "sap.ui.model.resource.ResourceModel",
+                "uri": "i18n/ListReport/zfi_cov_revenueSet/i18n.properties"
+            },
+            "i18n|sap.suite.ui.generic.template.ObjectPage|zfi_cov_revenueSet": {
+                "type": "sap.ui.model.resource.ResourceModel",
+                "uri": "i18n/ObjectPage/zfi_cov_revenueSet/i18n.properties"
+            },
+            "i18n|sap.suite.ui.generic.template.ObjectPage|zfi_cov_revenue": {
+                "type": "sap.ui.model.resource.ResourceModel",
+                "uri": "i18n/ObjectPage/zfi_cov_revenue/i18n.properties"
+            },
+            "": {
+                "dataSource": "mainService",
+                "preload": true,
+                "settings": {
+                    "defaultBindingMode": "TwoWay",
+                    "defaultCountMode": "Inline",
+                    "refreshAfterChange": false,
+                    "metadataUrlParams": {
+                        "sap-value-list": "none"
+                    }
+                }
+            }
+        },
+        "extends": {
+            "extensions": {
+                "sap.ui.controllerExtensions": {
+                    "sap.suite.ui.generic.template.ListReport.view.ListReport": {
+                        "controllerName": "ZFI_0266_RPR.zfi_0266_rpr.ext.controller.ListReportExt",
+                        "sap.ui.generic.app": {
+                            "zfi_cov_revenueSet": {
+                                "EntitySet": "zfi_cov_revenueSet",
+                                "Actions": {}
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "contentDensities": {
+            "compact": true,
+            "cozy": true
+        }
+    },
+    "sap.ui.generic.app": {
+        "_version": "1.3.0",
+        "settings": {
+            "forceGlobalRefresh": false,
+            "objectPageHeaderType": "Dynamic",
+            "showDraftToggle": false,
+            "considerAnalyticalParameters": true
+        },
+        "pages": {
+            "ListReport|zfi_cov_revenueSet": {
+                "entitySet": "zfi_cov_revenueSet",
+                "component": {
+                    "name": "sap.suite.ui.generic.template.ListReport",
+                    "list": true,
+                    "settings": {
+                        "tableType": "GridTable",
+                        "filterSettings": {
+                            "dateSettings": {
+                                "useDateRange": true
+                            }
+                        },
+                        "smartVariantManagement": true,
+                        "condensedTableLayout": true
+                    }
+                },
+                "pages": {
+                    "ObjectPage|zfi_cov_revenueSet": {
+                        "entitySet": "zfi_cov_revenueSet",
+                        "component": {
+                            "name": "sap.suite.ui.generic.template.ObjectPage"
+                        },
+                        "pages": {
+                            "ObjectPage|Parameters": {
+                                "navigationProperty": "Parameters",
+                                "entitySet": "zfi_cov_revenue",
+                                "component": {
+                                    "name": "sap.suite.ui.generic.template.ObjectPage"
+                                },
+                                "pages": {
+                                    "ObjectPage|Set": {
+                                        "navigationProperty": "Set",
+                                        "entitySet": "zfi_cov_revenueSet",
+                                        "component": {
+                                            "name": "sap.suite.ui.generic.template.ObjectPage"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "sap.platform.hcp": {
+        "uri": ""
+    },
+    "sap.platform.abap": {
+        "uri": "/sap/bc/ui5_ui5/sap/zfi_0266_rpr/webapp",
+        "_version": "1.1.0"
+    }
 }

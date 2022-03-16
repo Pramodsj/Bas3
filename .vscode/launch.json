@@ -1,0 +1,91 @@
+{
+  "inputs": [
+    {
+      "id": "UI5MinVersion1.65.0",
+      "type": "command",
+      "command": "sap.ux.appGenerator.ui5Version",
+      "args": {
+        "minUI5Version": "1.65.0"
+      }
+    }
+  ],
+  "configurations": [
+    {
+      "name": "Start ZFI_0266_RPR",
+      "type": "node",
+      "request": "launch",
+      "runtimeExecutable": "npx",
+      "cwd": "${workspaceFolder}/ZFI_0266_RPR",
+      "windows": {
+        "runtimeExecutable": "npx.cmd"
+      },
+      "runtimeArgs": [
+        "fiori",
+        "run"
+      ],
+      "args": [
+        "--open",
+        "test/flpSandbox.html?sap-ui-xx-viewCache=false#zfi_cov_revenueSet-display"
+      ],
+      "console": "integratedTerminal",
+      "internalConsoleOptions": "neverOpen",
+      "port": 9229,
+      "env": {
+        "DEBUG": "--inspect",
+        "run.config": "{\"handlerId\":\"fiori_tools\",\"runnableId\":\"/home/user/projects/Bas3/ZFI_0266_RPR\"}"
+      }
+    },
+    {
+      "name": "Start ZFI_0266_RPR Mock",
+      "type": "node",
+      "request": "launch",
+      "cwd": "${workspaceFolder}/ZFI_0266_RPR",
+      "runtimeExecutable": "npx",
+      "windows": {
+        "runtimeExecutable": "npx.cmd"
+      },
+      "runtimeArgs": [
+        "fiori",
+        "run"
+      ],
+      "args": [
+        "--open",
+        "test/flpSandboxMockServer.html?sap-ui-xx-viewCache=false#zfi_cov_revenueSet-display"
+      ],
+      "console": "integratedTerminal",
+      "internalConsoleOptions": "neverOpen",
+      "port": 9229,
+      "env": {
+        "run.config": "{\"handlerId\":\"fiori_tools\",\"runnableId\":\"/home/user/projects/Bas3/ZFI_0266_RPR\"}"
+      }
+    },
+    {
+      "name": "Start ZFI_0266_RPR Local",
+      "type": "node",
+      "request": "launch",
+      "cwd": "${workspaceFolder}/ZFI_0266_RPR",
+      "runtimeExecutable": "npx",
+      "windows": {
+        "runtimeExecutable": "npx.cmd"
+      },
+      "runtimeArgs": [
+        "fiori",
+        "run"
+      ],
+      "args": [
+        "--config",
+        "./ui5-local.yaml",
+        "--open",
+        "test/flpSandboxMockServer.html?sap-ui-xx-viewCache=false#masterDetail-display"
+      ],
+      "console": "integratedTerminal",
+      "internalConsoleOptions": "neverOpen",
+      "port": 9229,
+      "env": {
+        "run.config": "{\"handlerId\":\"fiori_tools\",\"runnableId\":\"/home/user/projects/Bas3/ZFI_0266_RPR\"}"
+      }
+    }
+  ],
+  "compounds": [],
+  "version": "0.2.0"
+}
